@@ -1,1 +1,25 @@
-<html><script>alert(1)</script></html>
+<html>
+    <body>
+        <script>function print() { }</script>
+        <script src="common/exploit.js"></script>
+        <script src="common/helpers.js"></script>
+        <script src="common/malloc.js"></script>
+        <script src="common/rop.js"></script>
+        <script src="common/syscalls.js"></script>
+        <script src="common/syscalls2.js"></script>
+        <script src="jb/c-code.js"></script>
+        <script>
+            if (main_ret == 179 || main_ret == 0) {
+                // all is fine, pass to Mira loader.
+            }
+            else {
+                alert("Jailbreak failed! Reboot your PS4 and try again.");
+            }
+        </script>
+        <script src="mira/mira.js"></script>
+        <script src="mira/c-code.js"></script>
+        <script>
+            alert("All is fine, close the browser if you need to.");
+        </script>
+    </body>
+</html>
