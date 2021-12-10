@@ -1,0 +1,30 @@
+<html>
+    <body>
+        <div id="loggerdiv"></div>
+        <script>function print(_msg) { document.getElementById("loggerdiv").appendChild(document.createTextNode(_msg)); }</script>
+        <script>if (document.cookie.indexOf("nope") >= 0) { alert("Are you sure?"); }</script>
+        <script src="common/exploit.js"></script>
+        <script src="common/helpers.js"></script>
+        <script src="common/malloc.js"></script>
+        <script src="common/rop.js"></script>
+        <script src="common/syscalls.js"></script>
+        <script src="common/syscalls2.js"></script>
+        <script src="jb/c-code.js"></script>
+        <script>
+            if (main_ret == 179 || main_ret == 0) {
+                // all is fine, pass to Mira loader.
+            }
+            else {
+                alert("Jailbreak failed! Reboot your PS4 and try again.");
+            }
+        </script>
+        <script src="mira/mira1.js"></script>
+      	<script src="mira/mira2.js"></script>
+        <script src="mira/c-code.js"></script>
+        <script>
+            alert("All is fine, close the browser if you need to.");
+            document.cookie = 'nope=0';
+            read_ptr_at(0); // need to crash the browser if the payload had returned! just in case...
+        </script>
+    </body>
+</html>
